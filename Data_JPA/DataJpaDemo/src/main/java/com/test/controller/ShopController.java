@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,9 +50,14 @@ public class ShopController {
 	}
 	
 	@GetMapping("/studentbyage/{age}")
-	
 	List<Student> studentByAge(@PathVariable int age) {
 		List<Student> stu=repo.findByAge(age);
 		return repo.findByAge(age);
+	}
+	
+	@DeleteMapping("/deletestudent/{id}")
+	String deleteStudent(@PathVariable int id) {
+		repo.deleteById(id);
+		return "student deleted successfully";
 	}
 }

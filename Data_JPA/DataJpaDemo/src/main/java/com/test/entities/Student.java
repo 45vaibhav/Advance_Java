@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Student {
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		int id;
+		private Integer id;
 		String name;
 		int age;
 		public Student( String name, int age) {
@@ -22,12 +22,12 @@ public class Student {
 			super();
 			// TODO Auto-generated constructor stub
 		}
-//		public int getId() {
-//			return id;
-//		}
-//		public void setId(int id) {
-//			this.id = id;
-//		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
 		public String getName() {
 			return name;
 		}
